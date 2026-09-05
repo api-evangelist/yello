@@ -1,0 +1,77 @@
+generated: '2026-09-04'
+method: probed
+source: https://www.wayup.com/mcp
+scope: >-
+  Covers only the one publicly reachable machine surface - the WayUp MCP endpoint and its OAuth
+  discovery documents. Yello Enterprise tenant APIs are not publicly documented, so no convention is
+  asserted for them.
+authentication:
+  style: oauth2-bearer
+  header: 'Authorization: Bearer <token>'
+  discovery: RFC 9728 protected-resource metadata, RFC 8414 authorization-server metadata
+  registration: dynamic (RFC 7591) at https://www.wayup.com/api/v1/oauth/o/register/
+  pkce: required, S256
+  detail: authentication/yello-authentication.yml
+transport:
+  protocol: JSON-RPC 2.0 over streamable HTTP
+  endpoint: https://www.wayup.com/mcp
+  methods: POST
+  accept: application/json, text/event-stream
+  server_initiated_streams: false
+  note: >-
+    A GET returns HTTP 405 with the JSON-RPC error {"code":-32600,"message":"Method Not Allowed:
+    server-initiated streams are not supported."} - the server is request/response only, no SSE
+    stream leg.
+error_envelope:
+  shape: json-rpc-2.0
+  fields: [jsonrpc, id, error.code, error.message]
+  observed:
+  - status: 405
+    body: '{"jsonrpc":"2.0","id":"server-error","error":{"code":-32600,"message":"Method Not Allowed: server-initiated streams are not supported."}}'
+  - status: 401
+    body: 'Unauthorized: provide `Authorization: Bearer <token>`.'
+    www_authenticate: Bearer resource_metadata="https://www.wayup.com/mcp/.well-known/oauth-protected-resource"
+  problem_json: false
+  note: The 401 is plain text, not JSON-RPC - the envelope is not uniform across error classes.
+versioning:
+  style: uri-path
+  observed: /api/v1/ on the OAuth endpoints named in the RFC 8414 metadata
+  mcp_protocol_version: not observable anonymously (initialize is auth-gated)
+  policy: none published
+pagination:
+  style: unknown
+  note: Not observable - the tool surface is auth-gated and no reference documents pagination.
+request_tracing:
+  request_id_header: none observed
+  note: Responses carry Cloudflare cf-ray only; no first-party correlation id.
+rate_limit_signaling:
+  headers: none observed
+  detail: rate-limits/yello-rate-limits.yml
+idempotency:
+  supported: false
+  coverage: none
+  mechanism: null
+  header: null
+  note: >-
+    No idempotency mechanism is documented or observable. The mutating surface, if any, sits behind
+    the OAuth wall on the MCP endpoint; tools/list is gated so the write operations cannot be
+    enumerated. Recorded as `none` rather than `na` because an MCP tool surface for a recruiting
+    platform is not presumptively read-only, and asserting `na` would claim knowledge of a surface
+    that was not observed.
+reversibility:
+  grade: unknown
+  operations: []
+  note: >-
+    No reversal path, undo window or cancellation policy is published, and the tool surface that
+    would carry one is auth-gated. Nothing is asserted. This is not `na` - `na` would claim the API
+    is read-only, which was not established.
+dry_run_mode:
+  supported: unknown
+  note: Not observable behind the OAuth wall; no sandbox or test mode is published.
+cross_links:
+  authentication: authentication/yello-authentication.yml
+  scopes: scopes/yello-scopes.yml
+  conformance: conformance/yello-conformance.yml
+  lifecycle: lifecycle/yello-lifecycle.yml
+  rate_limits: rate-limits/yello-rate-limits.yml
+  mcp: mcp/yello-mcp.yml

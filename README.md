@@ -64,5 +64,28 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Yello is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
+Yello is a Chicago-based talent acquisition software company, founded in 2008 (originally Recsolu),
+whose enterprise platform runs campus and early-career recruiting for roughly 100 Fortune 500
+employers across 70+ countries and 15+ languages: campus planning, recruitment events, sourcing,
+interview scheduling, a recruitment CRM, analytics and an AI campus recruiting agent, plus Yello
+Government Recruiting Solutions (YGRS), the WayUp early-career marketplace and Symba new-hire
+readiness.
+
+Yello publishes no developer portal, API reference or OpenAPI. Yello Enterprise is delivered as
+per-customer tenant sites ending in `yello.co` or `recsolu.com` (US `us-east-1` / EU `eu-west-1`),
+and the ATS/HRIS integrations it markets (Workday, Taleo, Oracle Recruiting Cloud, iCIMS, SAP
+SuccessFactors, Greenhouse, ADP) are provisioned through its partner team behind a contact form.
+
+The one publicly reachable machine surface found is an **undocumented remote MCP server** on the
+WayUp property Yello operates:
+
+- MCP endpoint: https://www.wayup.com/mcp (JSON-RPC 2.0 over streamable HTTP, OAuth-gated)
+- https://www.wayup.com/.well-known/oauth-protected-resource (RFC 9728)
+- https://www.wayup.com/.well-known/oauth-authorization-server (RFC 8414)
+- https://www.wayup.com/llms.txt
+- Status page: https://yello.statuspage.io/
+- Trust center: https://trust.yello.co/ — SOC 2 Type II, ISO 27001, FedRAMP Authorized
+
+Links:
+- https://yello.co/
 - https://forgeglobal.com/yello_stock/

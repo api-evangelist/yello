@@ -1,0 +1,26 @@
+# WayUp
+
+WayUp is a hiring platform connecting college students and recent graduates with jobs and internships at top employers. Employers post entry-level positions, internships, and part-time roles; candidates build profiles, apply directly, and get discovered.
+
+## Job & Internship Search
+
+- [All Jobs & Internships](https://www.wayup.com/) — Search all open positions
+- [Internships](https://www.wayup.com/s/internships/) — Paid and unpaid internships for current students
+- [Entry-Level Jobs](https://www.wayup.com/s/entry-level-jobs/) — Full-time roles for recent graduates
+- [Part-Time Jobs](https://www.wayup.com/s/part-time-jobs/) — Flexible part-time opportunities
+
+## For Employers
+
+- [Post a Job](https://www.wayup.com/employers/) — Reach qualified student and early-career candidates
+- [Enterprise Hiring](https://www.wayup.com/employers/) — Diversity recruiting and campus hiring solutions
+
+## Career Resources
+
+- [Career Advice](https://www.wayup.com/guide/) — Resume tips, interview prep, and job search guides
+
+## Company Information
+
+- [About WayUp](https://www.wayup.com/team/) — Our mission and team
+- [Privacy Policy](https://www.wayup.com/privacy/) — How we handle your data
+- [Terms of Service](https://www.wayup.com/terms/) — Terms and conditions
+- [Sitemap](https://www.wayup.com/sitemaps/727847582481574/sitemap-listings.xml) — Full job listings sitemap

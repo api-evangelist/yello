@@ -1,0 +1,63 @@
+generated: '2026-09-04'
+method: searched
+source: https://yello.statuspage.io/
+versioning:
+  scheme: unknown
+  note: >-
+    No public versioning policy was found. The only version marker observed anywhere on a Yello
+    surface is the /api/v1/ path prefix on the WayUp OAuth endpoints named in that host's RFC 8414
+    metadata.
+deprecation:
+  policy_url: null
+  sunset_header: unknown
+  note: No deprecation or sunset policy is published on yello.co, wayup.com or the status page.
+sla:
+  url: null
+  uptime_target: null
+  note: >-
+    No public SLA. Yello directs environment questions to a Customer Success Manager, per the status
+    page component descriptions.
+status_page: https://yello.statuspage.io/
+status_page_details:
+  provider: Atlassian Statuspage
+  page_id: b0gt7cltgldf
+  time_zone: America/Chicago
+  machine_readable:
+  - https://yello.statuspage.io/api/v2/summary.json
+  - https://yello.statuspage.io/api/v2/components.json
+  - https://yello.statuspage.io/api/v2/status.json
+  - https://yello.statuspage.io/history.atom
+  - https://yello.statuspage.io/history.rss
+  saved: lifecycle/yello-statuspage-components.json
+  components:
+  - name: Yello Enterprise
+    group: true
+    note: Production and testing environments; sites end in either yello.co or recsolu.com.
+  - name: Yello Enterprise Production - US
+    region: us-east-1
+  - name: Yello Enterprise Production - EU
+    region: eu-west-1
+  - name: Yello Enterprise UAT
+  - name: Yello Government Recruiting Solutions
+    group: true
+    note: YGRS sites do NOT end in yello.co or recsolu.com.
+  - name: Yello Government Recruiting Solutions (YGRS) Production
+  - name: Yello Government Recruiting Solutions (YGRS) UAT
+  - name: Yello Sourcing
+    note: Yello Sourcing (WayUp) business user interface
+  - name: Yello Sourcing / WayUp
+    group: true
+  - name: Mobile Apps
+    group: true
+  - name: Symba
+    note: New hire readiness platform
+  - name: Yello Pro
+deprecated_operations: []
+x-evidence:
+- fetched: '2026-09-04'
+  url: https://yello.statuspage.io/api/v2/components.json
+  http_status: 200
+  content_type: application/json
+- fetched: '2026-09-04'
+  url: https://yello.statuspage.io/
+  http_status: 200

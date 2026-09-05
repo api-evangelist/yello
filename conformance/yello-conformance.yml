@@ -1,0 +1,79 @@
+generated: '2026-09-04'
+method: searched
+source: https://yello.co/trust-and-security/
+note: >-
+  Standards conformance is split between two evidence classes here: OAuth/MCP behaviours OBSERVED on
+  www.wayup.com, and compliance certifications CLAIMED on Yello's trust-and-security page and Vanta
+  trust center. Both are labelled below. There is no OpenAPI in this repo, so nothing is derived
+  from a spec.
+standards:
+- id: oauth2
+  conforms: true
+  evidence: >-
+    https://www.wayup.com/.well-known/oauth-authorization-server returns issuer, authorization,
+    token, registration, jwks, revocation and introspection endpoints (HTTP 200, application/json).
+  basis: observed
+- id: rfc8414-authorization-server-metadata
+  conforms: true
+  evidence: https://www.wayup.com/.well-known/oauth-authorization-server (HTTP 200)
+  basis: observed
+- id: rfc9728-protected-resource-metadata
+  conforms: true
+  evidence: >-
+    https://www.wayup.com/.well-known/oauth-protected-resource (HTTP 200) and a WWW-Authenticate
+    Bearer challenge carrying resource_metadata on the 401 from https://www.wayup.com/mcp.
+  basis: observed
+- id: rfc7591-dynamic-client-registration
+  conforms: true
+  evidence: registration_endpoint https://www.wayup.com/api/v1/oauth/o/register/ advertised in RFC 8414 metadata
+  basis: observed
+- id: rfc7636-pkce
+  conforms: true
+  evidence: code_challenge_methods_supported ["S256"]
+  basis: observed
+- id: model-context-protocol
+  conforms: true
+  evidence: >-
+    JSON-RPC 2.0 streamable-HTTP MCP endpoint at https://www.wayup.com/mcp; GET returns a JSON-RPC
+    -32600 error stating server-initiated streams are not supported, POST returns a 401 OAuth
+    challenge.
+  basis: observed
+- id: openid-connect
+  conforms: false
+  evidence: /.well-known/openid-configuration returns 404 on every probed host
+  basis: observed
+- id: soc2-type-ii
+  conforms: true
+  evidence: https://yello.co/trust-and-security/ names SOC 2 Type II; corroborated at https://trust.yello.co/
+  basis: provider-claim
+- id: iso-27001
+  conforms: true
+  evidence: https://yello.co/trust-and-security/ names ISO 27001; corroborated at https://trust.yello.co/
+  basis: provider-claim
+- id: fedramp
+  conforms: true
+  evidence: >-
+    https://yello.co/trust-and-security/ states FedRAMP Authorized; the status page carries a
+    separate "Yello Government Recruiting Solutions" environment consistent with that posture.
+  basis: provider-claim
+- id: gdpr
+  conforms: true
+  evidence: https://yello.co/trust-and-security/ and https://yello.co/privacy-policy/
+  basis: provider-claim
+- id: ccpa-cpra
+  conforms: true
+  evidence: https://yello.co/trust-and-security/ and https://yello.co/privacy-policy-opt-out/
+  basis: provider-claim
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: no problem+json observed; the MCP surface uses JSON-RPC 2.0 error objects
+  basis: observed
+domain_standards:
+- id: hr-open-standards
+  conforms: unknown
+  evidence: >-
+    No HR Open Standards / HR-XML, SEP (Standard Exchange Protocol) or schema.org JobPosting contract
+    declaration was found on any reachable Yello surface. The ATS/HRIS integrations Yello markets
+    are bilateral and provisioned through its partner team, so no domain-standard signature can be
+    read from a contract. REWARD-ONLY - recorded as unknown, not as a failure.
+  basis: searched

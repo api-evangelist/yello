@@ -1,0 +1,178 @@
+generated: '2026-09-04'
+method: probed
+source: live GET of the named /.well-known/ path list on every host this record knows
+note: >-
+  Probed the registrable domain and www (yello.co), the trust-center host (trust.yello.co) and the
+  WayUp property Yello operates (www.wayup.com, wayup.com). Only www.wayup.com serves real documents:
+  RFC 8414 OAuth authorization-server metadata and RFC 9728 protected-resource metadata, the latter
+  naming a Model Context Protocol endpoint at https://www.wayup.com/mcp. trust.yello.co is a Vanta
+  Trust Center single-page app that answers HTTP 200 with the same 5,432-byte HTML shell for EVERY
+  path including the negative control, so none of its 200s are documents and no pointer is claimed
+  for that host.
+hosts:
+- host: https://www.wayup.com
+  hit_count: 2
+  path_echo_control: passed
+  soft_404_control:
+    path: /.well-known/yello-negative-control-7f3ab91c.json
+    status: 404
+  documents:
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    content_type: application/json
+    file: yello-wayup-oauth-authorization-server.json
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    content_type: application/json
+    file: yello-wayup-oauth-protected-resource.json
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/ucp.json
+    status: 404
+  - path: /.well-known/acp.json
+    status: 404
+  - path: /.well-known/aauth-resource.json
+    status: 404
+  - path: /.well-known/apis.json
+    status: 404
+  - path: /apis.json
+    status: 404
+  - path: /apis.yml
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: https://www.wayup.com/mcp
+  hit_count: 1
+  documents:
+  - path: /mcp/.well-known/oauth-protected-resource
+    status: 200
+    content_type: application/json
+    note: >-
+      Path-scoped RFC 9728 metadata, advertised by the WWW-Authenticate resource_metadata parameter
+      on an unauthenticated POST to the MCP endpoint. Same content as the host-level document; not
+      saved twice.
+- host: https://yello.co
+  hit_count: 0
+  path_echo_control: passed
+  soft_404_control:
+    path: /.well-known/yello-negative-control-7f3ab91c.json
+    status: 404
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 301
+  - path: /.well-known/oauth-protected-resource
+    status: 301
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/ucp.json
+    status: 404
+  - path: /.well-known/acp.json
+    status: 404
+  - path: /.well-known/aauth-resource.json
+    status: 404
+  - path: /.well-known/apis.json
+    status: 404
+  - path: /apis.json
+    status: 404
+  - path: /apis.yml
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: https://www.yello.co
+  hit_count: 0
+  note: 301 redirect to yello.co on every path; probed for completeness.
+  documents:
+  - path: /.well-known/security.txt
+    status: 301
+  - path: /.well-known/openid-configuration
+    status: 301
+  - path: /.well-known/oauth-authorization-server
+    status: 301
+  - path: /.well-known/oauth-protected-resource
+    status: 301
+  - path: /.well-known/api-catalog
+    status: 301
+  - path: /.well-known/apis.json
+    status: 301
+  - path: /apis.json
+    status: 301
+  - path: /.well-known/agent-card.json
+    status: 301
+  - path: /.well-known/agent.json
+    status: 301
+- host: https://trust.yello.co
+  hit_count: 0
+  path_echo_control: failed
+  soft_404_control:
+    path: /.well-known/yello-negative-control-7f3ab91c.json
+    status: 200
+    bytes: 5432
+    content_type: text/html
+  note: >-
+    Vanta Trust Center SPA catch-all. Every probed path returned HTTP 200 with an identical
+    5,432-byte HTML shell, including a control path that cannot exist, so every 200 on this host is
+    discarded. No documents recorded and no pointer credited for this host.
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    discarded: catch-all-html
+  - path: /.well-known/openid-configuration
+    status: 200
+    discarded: catch-all-html
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    discarded: catch-all-html
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    discarded: catch-all-html
+  - path: /.well-known/api-catalog
+    status: 200
+    discarded: catch-all-html
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    discarded: catch-all-html
+  - path: /.well-known/aauth-resource.json
+    status: 200
+    discarded: catch-all-html
+  - path: /.well-known/apis.json
+    status: 200
+    discarded: catch-all-html
+  - path: /apis.json
+    status: 200
+    discarded: catch-all-html
+  - path: /.well-known/agent-card.json
+    status: 200
+    discarded: catch-all-html
+  - path: /.well-known/agent.json
+    status: 200
+    discarded: catch-all-html
+- host: https://wayup.com
+  hit_count: 0
+  note: 301 redirect to www.wayup.com on every path.
+  documents:
+  - path: /.well-known/security.txt
+    status: 301
+  - path: /.well-known/oauth-authorization-server
+    status: 301
+  - path: /.well-known/oauth-protected-resource
+    status: 301
+  - path: /.well-known/agent-card.json
+    status: 301
+  - path: /.well-known/agent.json
+    status: 301

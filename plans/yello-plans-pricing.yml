@@ -1,0 +1,23 @@
+generated: '2026-09-04'
+method: searched
+source: https://yello.co/request-a-demo/
+plan_count: 0
+currency: null
+note: >-
+  Yello publishes no pricing tiers of any kind. There is no /pricing page in the yello.co sitemap;
+  every commercial path on the site ends at "Request a Demo" or the contact form, and the
+  partnerships page likewise routes prospective integration partners to a "someone from our team
+  will reach out" form. The closest thing to a published purchase path is the public-sector page
+  https://yello.co/government-recruiting/how-to-buy/, which describes contract vehicles rather than
+  prices. Enterprise contact-sales only.
+plans: []
+searched:
+- url: https://yello.co/request-a-demo/
+  status: 200
+- url: https://yello.co/government-recruiting/how-to-buy/
+  status: 200
+- url: https://yello.co/partnerships/
+  status: 200
+- url: https://yello.co/page-sitemap.xml
+  status: 200
+  note: full page sitemap enumerated; no pricing page exists

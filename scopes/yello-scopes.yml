@@ -1,0 +1,23 @@
+generated: '2026-09-04'
+method: probed
+source: https://www.wayup.com/.well-known/oauth-authorization-server
+note: >-
+  The authorization server advertises exactly one scope. No scopes/permissions reference page was
+  found on wayup.com or yello.co, so no descriptions beyond the observed value are asserted.
+schemes:
+- name: wayup-mcp-oauth
+  source: well-known/yello-wayup-oauth-authorization-server.json
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://www.wayup.com/api/v1/oauth/o/authorize/
+    tokenUrl: https://www.wayup.com/api/v1/oauth/o/token/
+scopes:
+- scope: mcp
+  description: >-
+    The only scope advertised in scopes_supported by both the authorization-server metadata and the
+    protected-resource metadata; grants access to the WayUp MCP endpoint.
+  flows:
+  - authorizationCode
+  sources:
+  - well-known/yello-wayup-oauth-authorization-server.json
+  - well-known/yello-wayup-oauth-protected-resource.json

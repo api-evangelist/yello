@@ -1,0 +1,1 @@
+{"resource": "https://www.wayup.com/mcp", "authorization_servers": ["https://www.wayup.com"], "scopes_supported": ["mcp"], "bearer_methods_supported": ["header"]}

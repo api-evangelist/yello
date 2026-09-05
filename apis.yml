@@ -1,23 +1,110 @@
 aid: yello
 name: Yello
-description: 'Yello is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  Yello is a Chicago-based talent acquisition software company, founded in 2008 (originally Recsolu),
+  whose enterprise platform runs campus and early-career recruiting for roughly 100 Fortune 500
+  employers across 70+ countries and 15+ languages. The product line covers campus planning,
+  recruitment events, candidate sourcing, interview scheduling, a recruitment CRM, recruitment
+  analytics and an AI campus recruiting agent, plus Yello Government Recruiting Solutions (YGRS) for
+  public-sector hiring and the WayUp candidate marketplace and Symba new-hire readiness products
+  acquired by the company. Yello Enterprise is delivered as per-customer tenant sites on yello.co and
+  recsolu.com in US (us-east-1) and EU (eu-west-1) environments. Its integration surface with ATS and
+  HRIS systems (Workday, Taleo, Oracle Recruiting Cloud, iCIMS, SAP SuccessFactors, Greenhouse, ADP)
+  is real but is sold and provisioned through a partner/sales conversation rather than a public
+  developer portal. The one openly reachable machine surface found is a remote Model Context Protocol
+  server on the WayUp property, published with RFC 8414 / RFC 9728 OAuth discovery.
+image: https://yello.co/wp-content/uploads/2021/04/yello-logo@4x.png
 url: https://raw.githubusercontent.com/api-evangelist/yello/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
+position: Producing
 specificationVersion: '0.20'
 created: '2026-09-04'
 modified: '2026-09-04'
 tags:
-- Company
-apis: []
+- Talent Acquisition
+- Recruiting
+- Human Resources
+- Campus Recruiting
+- Applicant Tracking
+- Recruitment CRM
+- Interview Scheduling
+- Jobs
+- Model Context Protocol
+- Government
+apis:
+- name: WayUp MCP Server
+  description: >-
+    A remote Model Context Protocol (streamable HTTP) server operated by WayUp, a Yello company, at
+    https://www.wayup.com/mcp. Discovered by probe: the host publishes RFC 9728 protected-resource
+    metadata naming the endpoint and RFC 8414 authorization-server metadata for it. The server is
+    fully OAuth-gated - an unauthenticated tools/list returns HTTP 401 with a WWW-Authenticate Bearer
+    challenge carrying resource_metadata - so the tool set and input schemas require authenticated
+    introspection. No public documentation of this server was found.
+  humanURL: https://www.wayup.com/
+  baseURL: https://www.wayup.com/mcp
+  image: https://yello.co/wp-content/uploads/2021/04/yello-logo@4x.png
+  tags:
+  - Model Context Protocol
+  - Jobs
+  - Recruiting
+  properties:
+  - type: MCPServer
+    url: mcp/yello-mcp.yml
+  - type: Authentication
+    url: authentication/yello-authentication.yml
+  - type: OAuthScopes
+    url: scopes/yello-scopes.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: TrustCenter
+  url: security/yello-trust-center.yml
 - type: Website
-  url: https://forgeglobal.com/yello_stock/
+  url: https://yello.co/
+- type: Blog
+  url: https://yello.co/blog/
+- type: Support
+  url: https://yello.co/contact/
+- type: SignUp
+  url: https://yello.co/request-a-demo/
+- type: Pricing
+  url: https://yello.co/government-recruiting/how-to-buy/
+- type: TermsOfService
+  url: https://yello.co/msa/
+- type: PrivacyPolicy
+  url: https://yello.co/privacy-policy/
+- type: StatusPage
+  url: https://yello.statuspage.io/
+- type: Compliance
+  url: https://yello.co/trust-and-security/
+- type: Lifecycle
+  url: lifecycle/yello-lifecycle.yml
+- type: WellKnown
+  url: well-known/yello-well-known.yml
+- type: Conformance
+  url: conformance/yello-conformance.yml
+- type: DomainSecurity
+  url: security/yello-domain-security.yml
+- type: Conventions
+  url: conventions/yello-conventions.yml
+- type: Plans
+  url: plans/yello-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/yello-rate-limits.yml
+- type: Packages
+  url: packages/yello-packages.yml
+- type: LLMsTxt
+  name: WayUp llms.txt (published)
+  url: llms/yello-wayup-llms.txt
+- type: LLMsTxt
+  name: Yello llms.txt (generated)
+  url: llms/yello-llms.txt
+x-enrichment:
+  date: '2026-09-04'
+  status: enriched
+  artifacts_added: 17
+  pass: local-v3

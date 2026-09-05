@@ -1,0 +1,50 @@
+generated: '2026-09-04'
+method: probed
+source: https://www.wayup.com/.well-known/oauth-authorization-server
+note: >-
+  No OpenAPI exists in this repo, so this profile is not derived from securitySchemes. It is read
+  verbatim from the RFC 8414 authorization-server metadata and RFC 9728 protected-resource metadata
+  that www.wayup.com serves for its MCP endpoint. Yello Enterprise tenant sites (customer.yello.co /
+  customer.recsolu.com) are not covered - their authentication model is not publicly documented.
+summary:
+  types:
+  - oauth2
+  oauth2_flows:
+  - authorizationCode
+  bearer_methods:
+  - header
+  dynamic_client_registration: true
+  pkce_required_methods:
+  - S256
+schemes:
+- name: wayup-mcp-oauth
+  type: oauth2
+  applies_to: https://www.wayup.com/mcp
+  issuer: https://www.wayup.com
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://www.wayup.com/api/v1/oauth/o/authorize/
+    tokenUrl: https://www.wayup.com/api/v1/oauth/o/token/
+    scopes:
+      mcp: Access to the WayUp Model Context Protocol server
+  registration_endpoint: https://www.wayup.com/api/v1/oauth/o/register/
+  jwks_uri: https://www.wayup.com/api/v1/oauth/o/jwk/
+  revocation_endpoint: https://www.wayup.com/api/v1/oauth/o/revoke-token/
+  introspection_endpoint: https://www.wayup.com/api/v1/oauth/o/introspect/
+  response_types_supported:
+  - code
+  grant_types_supported:
+  - authorization_code
+  - refresh_token
+  code_challenge_methods_supported:
+  - S256
+  token_endpoint_auth_methods_supported:
+  - none
+  sources:
+  - well-known/yello-wayup-oauth-authorization-server.json
+  - well-known/yello-wayup-oauth-protected-resource.json
+challenge:
+  observed_on: https://www.wayup.com/mcp
+  http_status: 401
+  www_authenticate: Bearer resource_metadata="https://www.wayup.com/mcp/.well-known/oauth-protected-resource"
+  spec: RFC 9728 (OAuth 2.0 Protected Resource Metadata)

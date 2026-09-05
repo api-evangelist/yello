@@ -1,0 +1,39 @@
+generated: '2026-09-04'
+method: searched
+source: registry searches (npm, PyPI, RubyGems, crates.io, NuGet, Maven Central, pkg.go.dev)
+package_count: 0
+official_count: 0
+note: >-
+  No first-party Yello client library was found in any public registry. An npm text search for
+  "yello" returns only unrelated projects (a WooRank RabbitMQ library, Trello wrappers, Vue/Arco
+  themes). The scoped package @yello/kit exists on npm ("Kit project for common libraries used
+  across yello", last published 2018-12-19, v1.4.9) but carries no repository, homepage or author
+  link tying it to yello.co, so it is NOT claimed as first-party here. Yello ships no public SDK
+  because it ships no public API: integrations are built by its own integration team under a partner
+  agreement. No SDKs pointer is emitted.
+packages: []
+rejected:
+- name: '@yello/kit'
+  registry: npm
+  version: 1.4.9
+  published: '2018-12-19'
+  official: false
+  reason: >-
+    Name-only match. No repository, homepage or maintainer evidence links it to Yello, Inc.; claiming
+    it would attribute a stranger's package to this company.
+searched_registries:
+- registry: npm
+  query: https://registry.npmjs.org/-/v1/search?text=yello
+  result: no first-party match
+- registry: pypi
+  result: no first-party match
+- registry: rubygems
+  result: no first-party match
+- registry: crates.io
+  result: no first-party match
+- registry: nuget
+  result: no first-party match
+- registry: maven-central
+  result: no first-party match
+- registry: pkg.go.dev
+  result: no first-party match

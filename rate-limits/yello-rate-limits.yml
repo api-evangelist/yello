@@ -1,0 +1,21 @@
+generated: '2026-09-04'
+method: probed
+source: https://www.wayup.com/mcp
+limit_count: 0
+note: >-
+  No rate limits are documented anywhere on a public Yello surface, and none are signalled at
+  runtime. An unauthenticated POST to the WayUp MCP endpoint and a GET of its RFC 9728 metadata were
+  inspected for RateLimit-*, X-RateLimit-* and Retry-After response headers; none were present on
+  either. Whether limits exist behind the OAuth wall cannot be observed anonymously, so nothing is
+  asserted about the authenticated surface. An honest zero, not an absence of checking.
+rate_limits: []
+headers_observed: []
+probes:
+- url: https://www.wayup.com/mcp
+  method: POST
+  http_status: 401
+  rate_limit_headers: none
+- url: https://www.wayup.com/.well-known/oauth-protected-resource
+  method: GET
+  http_status: 200
+  rate_limit_headers: none
