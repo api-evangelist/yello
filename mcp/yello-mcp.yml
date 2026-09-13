@@ -2,15 +2,19 @@ generated: '2026-09-04'
 method: probed
 status: published
 source: https://www.wayup.com/.well-known/oauth-protected-resource
-ownership: >-
-  www.wayup.com is a Yello property - Yello acquired WayUp, links it from the yello.co footer as
-  "For Candidates", and the Yello status page lists "Yello Sourcing / WayUp" as a Yello component -
+ownership: www.wayup.com is a Yello property - Yello acquired WayUp, links it from the yello.co footer
+  as "For Candidates", and the Yello status page lists "Yello Sourcing / WayUp" as a Yello component -
   so this MCP server belongs to this company even though it is served from a different domain.
 deployment:
   mode: remote
   endpoint: https://www.wayup.com/mcp
   auth: oauth
   verified: probed
+  probe_prior: (never probed)
+  probe: gated
+  probe_why: RFC 9728 challenge on the MCP path only
+  checked: '2026-09-11'
+  source: claimed-backlog re-probe 2026-09-11
 server:
   name: wayup
   transport: http
@@ -30,12 +34,11 @@ discovery:
   - header
 tools: []
 tools_status: gated
-tools_note: >-
-  An unauthenticated POST of {"jsonrpc":"2.0","id":1,"method":"tools/list"} returned HTTP 401 with
-  WWW-Authenticate: Bearer resource_metadata="https://www.wayup.com/mcp/.well-known/oauth-protected-resource".
+tools_note: 'An unauthenticated POST of {"jsonrpc":"2.0","id":1,"method":"tools/list"} returned HTTP 401
+  with WWW-Authenticate: Bearer resource_metadata="https://www.wayup.com/mcp/.well-known/oauth-protected-resource".
   initialize returns the same 401. The tool names and inputSchemas therefore require an authenticated
-  introspection and are NOT recorded here. No published tool list (llms.txt, docs page or registry
-  entry) was found to fall back on, so nothing is asserted about the tool surface.
+  introspection and are NOT recorded here. No published tool list (llms.txt, docs page or registry entry)
+  was found to fall back on, so nothing is asserted about the tool surface.'
 x-evidence:
 - fetched: '2026-09-04'
   url: https://www.wayup.com/.well-known/oauth-protected-resource
