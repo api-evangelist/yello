@@ -29,6 +29,17 @@ tags:
 - Applicant Tracking
 - Recruitment CRM
 - Interview Scheduling
+- Job
+- MCP
+- Government
+tags_raw:
+- Talent Acquisition
+- Recruiting
+- Human Resources
+- Campus Recruiting
+- Applicant Tracking
+- Recruitment CRM
+- Interview Scheduling
 - Jobs
 - Model Context Protocol
 - Government
@@ -45,6 +56,10 @@ apis:
   baseURL: https://www.wayup.com/mcp
   image: https://yello.co/wp-content/uploads/2021/04/yello-logo@4x.png
   tags:
+  - MCP
+  - Job
+  - Recruiting
+  tags_raw:
   - Model Context Protocol
   - Jobs
   - Recruiting
