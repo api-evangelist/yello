@@ -1,0 +1,11 @@
+[
+  {
+    "repo": "yello",
+    "captured_at": "2026-10-11T194854",
+    "source_url": "https://yello.co/",
+    "source_type": "Website",
+    "file": "yello-2026-10-11T194854.png",
+    "bytes": 113474,
+    "capture": "playwright-local"
+  }
+]
