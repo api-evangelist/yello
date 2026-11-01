@@ -64,28 +64,119 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Yello is a Chicago-based talent acquisition software company, founded in 2008 (originally Recsolu),
-whose enterprise platform runs campus and early-career recruiting for roughly 100 Fortune 500
-employers across 70+ countries and 15+ languages: campus planning, recruitment events, sourcing,
-interview scheduling, a recruitment CRM, analytics and an AI campus recruiting agent, plus Yello
-Government Recruiting Solutions (YGRS), the WayUp early-career marketplace and Symba new-hire
-readiness.
+Yello is a Chicago-based talent acquisition software company, founded in 2008 (originally Recsolu), whose enterprise platform runs campus and early-career recruiting for roughly 100 Fortune 500 employers across 70+ countries and 15+ languages. The product line covers campus planning, recruitment events, candidate sourcing, interview scheduling, a recruitment CRM, recruitment analytics and an AI campus recruiting agent, plus Yello Government Recruiting Solutions (YGRS) for public-sector hiring and the WayUp candidate marketplace and Symba new-hire readiness products acquired by the company. Yello Enterprise is delivered as per-customer tenant sites on yello.co and recsolu.com in US (us-east-1) and EU (eu-west-1) environments. Its integration surface with ATS and HRIS systems (Workday, Taleo, Oracle Recruiting Cloud, iCIMS, SAP SuccessFactors, Greenhouse, ADP) is real but is sold and provisioned through a partner/sales conversation rather than a public developer portal. The one openly reachable machine surface found is a remote Model Context Protocol server on the WayUp property, published with RFC 8414 / RFC 9728 OAuth discovery.
 
-Yello publishes no developer portal, API reference or OpenAPI. Yello Enterprise is delivered as
-per-customer tenant sites ending in `yello.co` or `recsolu.com` (US `us-east-1` / EU `eu-west-1`),
-and the ATS/HRIS integrations it markets (Workday, Taleo, Oracle Recruiting Cloud, iCIMS, SAP
-SuccessFactors, Greenhouse, ADP) are provisioned through its partner team behind a contact form.
+**Areas:** Talent Acquisition · Recruiting · Human Resources · Campus Recruiting · Applicant Tracking · Recruitment CRM · Interview Scheduling · Job · MCP · Government
 
-The one publicly reachable machine surface found is an **undocumented remote MCP server** on the
-WayUp property Yello operates:
+## Yello on APIs.io
 
-- MCP endpoint: https://www.wayup.com/mcp (JSON-RPC 2.0 over streamable HTTP, OAuth-gated)
-- https://www.wayup.com/.well-known/oauth-protected-resource (RFC 9728)
-- https://www.wayup.com/.well-known/oauth-authorization-server (RFC 8414)
-- https://www.wayup.com/llms.txt
-- Status page: https://yello.statuspage.io/
-- Trust center: https://trust.yello.co/ — SOC 2 Type II, ISO 27001, FedRAMP Authorized
+Everything profiled for Yello is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/yello/](https://apis.io/providers/yello/)** — or go straight to one of the APIs or properties below.
 
-Links:
-- https://yello.co/
-- https://forgeglobal.com/yello_stock/
+### APIs (1)
+
+- [WayUp MCP Server](https://apis.io/apis/yello/wayup-mcp-server/) — A remote Model Context Protocol (streamable HTTP) server operated by WayUp, a Yello company, at https://www.wayup.com/mcp. Discovered by probe: the host…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [wayup](https://apis.io/servers/yello/wayup/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Yello Authentication](https://apis.io/security/yello/yello-authentication/)
+- [Yello Domain Security](https://apis.io/security/yello/yello-domain-security/)
+- [Yello Trust Center](https://apis.io/security/yello/yello-trust-center/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Yello Scopes](https://apis.io/scopes/yello/yello-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Yello Plans Pricing](https://apis.io/plans/yello/yello-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Yello Rate Limits](https://apis.io/rate-limits/yello/yello-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://yello.co/)
+- [Pricing](https://yello.co/government-recruiting/how-to-buy/)
+- [Sign up](https://yello.co/request-a-demo/)
+- [Support](https://yello.co/contact/)
+- [Blog](https://yello.co/blog/)
+- [Compliance](https://yello.co/trust-and-security/)
+- [Terms of service](https://yello.co/msa/)
+- [Privacy policy](https://yello.co/privacy-policy/)
+- [Status](https://yello.statuspage.io/)
+
+## API Evangelist rating
+
+**Kin Score 32.7** — thin · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 75.0 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 15.8 |
+| Developer ergonomics | 19.0 |
+| Access clarity | 60.5 |
+
+**Agent readiness 32.7** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | verified |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | yes |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | verified |
+| Dynamic Client Registration | yes |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | na |
+
+**Regulatory alignment 47.1** — Government & Public Sector
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/yello/](https://apis.io/providers/yello/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Yello: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/yello/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
